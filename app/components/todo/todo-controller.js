@@ -14,13 +14,27 @@ function draw(todos) {
 	//WHAT IS MY PURPOSE?
 	//BUILD YOUR TODO TEMPLATE HERE
 	var template = ''
+	todos.forEach(todo => {
+		template += `
+		<li>
+			<div class="form-group form-check">
+    		<input type="checkbox" onchange="app.controllers.todoController.toggleTodoStatus('${todo._id}')" class="form-check-input" id="${todo._id}>
+    		<label class="form">${todo.description}</label>
+			</div>
+			
+		</li>`
+	});
+
+	document.getElementById("todo-list").innerHTML = template
 	//DONT FORGET TO LOOP
+
 }
 
 
 export default class TodoController {
 	constructor() {
 		// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
+		todoService.getTodos(draw)
 	}
 	// You will need four methods
 	// getTodos should request your api/todos and give an array of todos to your callback fn
@@ -33,9 +47,11 @@ export default class TodoController {
 	addTodoFromForm(e) {
 		e.preventDefault() // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
+		console.log(e)
 		var form = e.target
+		console.log(form)
 		var todo = {
-			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			description: form.addTodo.value // DONT FORGET TO BUILD YOUR TODO OBJECT
 		}
 
 		//PASSES THE NEW TODO TO YOUR SERVICE

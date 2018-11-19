@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inspire</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -15,10 +17,22 @@
 		The Quote
 	</div>
 
-	<div id="todo">
-		<form onsubmit=""></form>
+	<div class="card" style="width: 18rem;" id="todo">
 		A Todo List
+		<ul id="todo-list">
+
+		</ul>
+		<form onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="stuff" aria-label="Recipient's username" aria-describedby="basic-addon2"
+				 name="addTodo">
+				<div class="input-group-append">
+					<button class="btn btn-primary" type="submit">Add Todo</button>
+				</div>
+			</div>
+		</form>
 	</div>
+
 
 
 
