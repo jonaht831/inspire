@@ -19,7 +19,8 @@ function draw(todos) {
 		<li>
 			<div class="form-group form-check">
     		<input type="checkbox" onchange="app.controllers.todoController.toggleTodoStatus('${todo._id}')" class="form-check-input" id="${todo._id}>
-    		<label class="form">${todo.description}</label>
+				<label class="form">${todo.description}</label>
+				<button class="btn btn-danger" onclick="app.controllers.todoController.removeTodo('${todo._id}')">Delete</button>
 			</div>
 			
 		</li>`
@@ -67,9 +68,9 @@ export default class TodoController {
 		// YEP THATS IT FOR ME
 	}
 
-	removeTodo(todoId) {
+	removeTodo(id) {
 		// ask the service to run the remove todo with this id
-
+		todoService.removeTodo(id, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 
