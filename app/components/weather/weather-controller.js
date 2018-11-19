@@ -5,7 +5,7 @@ var weatherService = new WeatherService()
 function drawWeather(weather) {
 	var template = `
 		<h2>${weather.name}</h2>
-		<h2>${(9 / 5 * (weather.main.temp - 273) + 32).toFixed(1)}</h2>`
+		<h2>${(9 / 5 * (weather.main.temp - 273) + 32).toFixed(1)} Degrees</h2>`
 	document.getElementById('weather').innerHTML = template
 }
 
